@@ -71,6 +71,7 @@ export function DataTable<TData, TValue>({
             table.getColumn(filterBy.key)?.setFilterValue(event.target.value)
           }
           className='max-w-sm'
+          name='search'
         />
         {children}
       </div>

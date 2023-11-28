@@ -5,7 +5,6 @@ import { PageFooter } from '@/components/page-footer';
 import { PageHeader } from '@/components/page-header';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/style';
-import { SheetProvider } from '@/providers/sheet-provider';
 import { ThemeProvider } from '@/providers/theme-provider';
 
 import '@/styles/globals.css';
@@ -34,14 +33,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <SheetProvider>
-            <div className='relative min-h-screen flex flex-col bg-background'>
-              <PageHeader />
-              <main className='flex-1'>{children}</main>
-              <PageFooter />
-              <Toaster />
-            </div>
-          </SheetProvider>
+          <div className='relative min-h-screen flex flex-col bg-background'>
+            <PageHeader />
+            <main className='flex-1'>{children}</main>
+            <PageFooter />
+            <Toaster />
+          </div>
         </ThemeProvider>
       </body>
     </html>

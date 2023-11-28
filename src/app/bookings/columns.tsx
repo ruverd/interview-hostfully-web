@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { convertCentsToCurrency } from '@/lib/currency';
 import { getDaysBetweenDates } from '@/lib/date';
 import { getInitials } from '@/lib/initials';
+import { SheetProvider } from '@/providers/sheet-provider';
 
 const BookingSchema = z.object({
   id: z.number(),
@@ -120,7 +121,11 @@ export const bookingColumns: ColumnDef<BookingData>[] = [
         checkOut: booking.checkOut,
       } as Booking;
 
-      return <BookingEditDrawer booking={bookingData} />;
+      return (
+        <SheetProvider>
+          <BookingEditDrawer booking={bookingData} />
+        </SheetProvider>
+      );
     },
   },
 ];

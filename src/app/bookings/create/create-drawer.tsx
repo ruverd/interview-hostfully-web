@@ -17,7 +17,7 @@ export function BookingCreateDrawer() {
   const { show, setShow } = useContext(SheetContext);
 
   return (
-    <Sheet open={show} onOpenChange={setShow} key={'create-sheet'}>
+    <Sheet>
       <SheetTrigger>
         <div
           role='button'
